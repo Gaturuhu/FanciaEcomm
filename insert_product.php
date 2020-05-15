@@ -57,9 +57,9 @@ require 'db.php';
                     <div class="form-group">
                         <label class="col-md-3 control-label">Product Category</label>
                         <div>
-                            <select name="product_cat"  class="form-control">
+                            <select name="product_cat"  class="form-control" required>
 
-                                <option>Accessories</option>
+                                <option>Select a category</option>
                                 <?php
 
                                 $sql= "SELECT * FROM `product_categories`";
@@ -114,13 +114,13 @@ require 'db.php';
                 <div class="form-group">
                     <label class="col-md-3 control-label">Product Image 2</label>
                     <div>
-                        <input name="product_img2" type="file" class="form-control" required>
+                        <input name="product_img2" type="file" class="form-control">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-md-3 control-label">Product Image 3</label>
                     <div>
-                        <input name="product_img3" type="file" class="form-control" required>
+                        <input name="product_img3" type="file" class="form-control">
                     </div>
                 </div>
                 <div class="form-group">
@@ -187,9 +187,9 @@ if(isset($_POST['submit'])){
     $temp_name3= $_FILES['product_img3']['tmp_name'];
 
 
-    move_uploaded_file($temp_name1,'images/$product_img1');
-    move_uploaded_file($temp_name2,'images/$product_img2');
-    move_uploaded_file($temp_name3,'images/$product_img3');
+    move_uploaded_file($temp_name1,"product_images/$product_img1");
+    move_uploaded_file($temp_name2,"product_images/$product_img2");
+    move_uploaded_file($temp_name3,"product_images/$product_img3");
 
     $insert_product="INSERT INTO `products`(`product_id`, `p_cat_id`, `cat_id`, `date`, `product_title`, `product_img1`, `product_img2`, `product_img3`, `product_price`, `product_keywords`, `product_desc`) VALUES 
 (NULL,'$product_cat','$cat',NOW(),'$product_title','$product_img1','$product_img2','$product_img3','$product_price','$product_keywords','$product_desc')";
@@ -205,3 +205,5 @@ if(isset($_POST['submit'])){
 }
 
 ?>
+
+

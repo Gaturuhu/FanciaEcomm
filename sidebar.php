@@ -1,22 +1,18 @@
+<?php
+require 'db.php';
+require 'functions/functions.php';
+?>
+
 <div class="card" style="width: 16rem;">
         <div class="card-body">
         <p class="side-card-title">PRODUCT CATEGORIES</p>
+            <hr>
 
-            <a href="#">JACKETS</a>
-            <br>
-            <br>
-            <a href="#">ACCESSORIES</a>
-            <br>
-            <br>
-            <a href="#">SHOES</a>
-            <br>
-            <br>
-            <a href="#">COATS</a>
-            <br>
-            <br>
-            <a href="#">T-SHIRT</a>
-            <br>
-            <br>
+          <p>
+
+            <?php
+            getP_cats();
+            ?>
 
         </p>
 
@@ -24,28 +20,13 @@
 </div>
 <br>
 <br>
-<br>
-<div class="card" style="width: 16rem;">
+<div class="card">
     <div class="card-body">
         <p class="side-card-title">PRODUCT CATEGORIES</p>
-
-        <a href="#">MEN</a>
-        <br>
-        <br>
-        <a href="#">WOMEN</a>
-        <br>
-        <br>
-        <a href="#">SCHOOL</a>
-        <br>
-        <br>
-        <a href="#">CHONDO</a>
-        <br>
-        <br>
-        <a href="#">T-SHIRT</a>
-        <br>
-        <br>
-
-        </p>
+        <hr>
+        <?php
+        getCats();
+        ?>
 
     </div>
 </div>

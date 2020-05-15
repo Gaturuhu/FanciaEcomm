@@ -1,8 +1,12 @@
+<?php
+require 'db.php';
+?>
+
 <div id="footer">
     <div class="container">
         <div class="row">
             <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
-                <h4>PAGES</h4>
+                <h4>Pages</h4>
                 <ul>
                     <li><a href="index.php">HOME</a></li>
                     <li><a href="shop.php">SHOP</a></li>
@@ -19,10 +23,28 @@
             </div>
             <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
                 <h4>Top Product Categories</h4>
+                <hr>
                 <ul>
-                    <li><a href="#">Bags</a></li>
-                    <li><a href="#">Watches</a></li>
-                    <li><a href="#">Chondo</a></li>
+                   <?php
+
+                   $get_p_cats = "SELECT * FROM `product_categories`";
+
+                   $run_p_cats = mysqli_query($conn,$get_p_cats);
+                   while($row_p_cats = mysqli_fetch_array($run_p_cats)){
+                       $p_cat_id = $row_p_cats['p_cat_id'];
+                       $p_cat_title = $row_p_cats['p_cat_title'];
+
+
+                       echo "
+                        <li>
+                            <a href='shop.php?p_cat_id'>
+                                $p_cat_title
+                            </a>
+                        </li>
+                       
+                       ";
+                   }
+                   ?>
                 </ul>
                 <hr>
             </div>
@@ -40,7 +62,7 @@
                 <hr>
             </div>
             <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
-                <h4>Get The news</h4>
+                <h4>Get the news</h4>
                 <p class="text-muted">
                     Bags are awesome. Get Yours Today.
                 </p>

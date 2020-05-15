@@ -166,11 +166,11 @@ body{
 
 }
 .side-card-title{
-    background: #555555;
-    color: black;
+    /*background: #4162c7;*/
+    color: #555555;
 }
 .container #like{
-    box-shadow: 0px 1px 5px rgb(0,0,0,.5);
+    box-shadow: 0px 1px 5px rgb(0,0,0,0.5);
 }
 /*crt.php styles*/
 #content #cart .table tbody tr td img{
@@ -190,7 +190,7 @@ body{
     background-color: #f7f7f7;
     margin: 30px -20px 20px;
     padding: 20px;
-    border: 1px: solid #eeeeee;
+    border: 1px solid #eeeeee;
 }
 #content #order-summary table{
     margin-top: 20px;

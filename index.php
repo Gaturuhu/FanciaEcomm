@@ -1,6 +1,7 @@
 <?php
 require 'db.php';
 require 'header.php';
+require 'functions/functions.php';
 ?>
 <!--    carousel start-->
     <div class="container">
@@ -42,21 +43,21 @@ require 'header.php';
             <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
                 <div class="icon">
                     <i class="fa fa-heart"></i>
-                    <h3><a href="">Value</a></h3>
+                    <h3>Value</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto aut dolores illo itaque maxime modi qui quia quos voluptate voluptatibus?</p>
                 </div>
             </div>
             <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
                 <div class="icon">
                     <i class="fa fa-tag"></i>
-                    <h3><a href="">Pricing</a></h3>
+                    <h3>Pricing</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci corporis cumque dignissimos, eligendi ipsum minus necessitatibus nisi omnis possimus repellendus.</p>
                 </div>
             </div>
             <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
                 <div class="icon">
-                    <i class="far fa-thumbs-up"></i>
-                    <h3><a href="">Gurantee</a></h3>
+                    <i class="fa fa-thumbs-up"></i>
+                    <h3>Guarantee</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum eos itaque nobis omnis optio rem totam unde voluptas. Deleniti, vero.</p>
                 </div>
             </div>
@@ -74,154 +75,11 @@ require 'header.php';
 <!--store front-->
  <div id="content" class="container">
      <div class="row">
-         <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 single">
-             <div class="card" style="width: 16rem;">
-                 <img src="images/nn.jpg" class="card-img-top" alt="...">
-                 <div class="card-body">
-                     <p class="card-title">chondo bag</p>
-                     <p class="card-text">KES 3000</p>
-                     <p class="button">
-                         <a href="details.php" class="btn btn-default">View Details</a>
-                         <a href="details.php" class="btn btn-primary">
-                             <i class="fa fa-shopping-cart">
-                                 Add to Cart
-                             </i>
-                         </a>
-                     </p>
-
-                 </div>
-             </div>
-         </div>
-         <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 single">
-             <div class="card" style="width: 16rem;">
-                 <img src="images/nn.jpg" class="card-img-top" alt="...">
-                 <div class="card-body">
-                     <p class="card-title">chondo bag</p>
-                     <p class="card-text">kes 3000</p>
-                     <p class="button">
-                         <a href="details.php" class="btn btn-default">View Details</a>
-                         <a href="details.php" class="btn btn-primary">
-                             <i class="fa fa-shopping-cart">
-                                 Add to Cart
-                             </i>
-                         </a>
-                     </p>
-
-                 </div>
-             </div>
-         </div>
-         <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 single">
-             <div class="card" style="width: 16rem;">
-                 <img src="images/nn.jpg" class="card-img-top" alt="...">
-                 <div class="card-body">
-                     <p class="card-title">chondo bag</p>
-                     <p class="card-text">kes 3000</p>
-                     <p class="button">
-                         <a href="details.php" class="btn btn-default">View Details</a>
-                         <a href="details.php" class="btn btn-primary">
-                             <i class="fa fa-shopping-cart">
-                                 Add to Cart
-                             </i>
-                         </a>
-                     </p>
-
-                 </div>
-             </div>
-         </div>
-         <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 single">
-             <div class="card" style="width: 16rem;">
-                 <img src="images/nn.jpg" class="card-img-top" alt="...">
-                 <div class="card-body">
-                     <p class="card-title">chondo bag</p>
-                     <p class="card-text">kes 3000</p>
-                     <p class="button">
-                         <a href="details.php" class="btn btn-default">View Details</a>
-                         <a href="details.php" class="btn btn-primary">
-                             <i class="fa fa-shopping-cart">
-                                 Add to Cart
-                             </i>
-                         </a>
-                     </p>
-
-                 </div>
-             </div>
-         </div>
-     </div>
-     <div class="row">
-         <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 single">
-             <div class="card" style="width: 16rem;">
-                 <img src="images/nn.jpg" class="card-img-top" alt="...">
-                 <div class="card-body">
-                     <p class="card-title">chondo bag</p>
-                     <p class="card-text">KES 3000</p>
-                     <p class="button">
-                         <a href="details.php" class="btn btn-default">View Details</a>
-                         <a href="details.php" class="btn btn-primary">
-                             <i class="fa fa-shopping-cart">
-                                 Add to Cart
-                             </i>
-                         </a>
-                     </p>
-
-                 </div>
-             </div>
-         </div>
-         <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 single">
-             <div class="card" style="width: 16rem;">
-                 <img src="images/nn.jpg" class="card-img-top" alt="...">
-                 <div class="card-body">
-                     <p class="card-title">chondo bag</p>
-                     <p class="card-text">kes 3000</p>
-                     <p class="button">
-                         <a href="details.php" class="btn btn-default">View Details</a>
-                         <a href="details.php" class="btn btn-primary">
-                             <i class="fa fa-shopping-cart">
-                                 Add to Cart
-                             </i>
-                         </a>
-                     </p>
-
-                 </div>
-             </div>
-         </div>
-         <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 single">
-             <div class="card" style="width: 16rem;">
-                 <img src="images/nn.jpg" class="card-img-top" alt="...">
-                 <div class="card-body">
-                     <p class="card-title">chondo bag</p>
-                     <p class="card-text">kes 3000</p>
-                     <p class="button">
-                         <a href="details.php" class="btn btn-default">View Details</a>
-                         <a href="details.php" class="btn btn-primary">
-                             <i class="fa fa-shopping-cart">
-                                 Add to Cart
-                             </i>
-                         </a>
-                     </p>
-
-                 </div>
-             </div>
-         </div>
-         <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 single">
-             <div class="card" style="width: 16rem;">
-                 <img src="images/nn.jpg" class="card-img-top" alt="...">
-                 <div class="card-body">
-                     <p class="card-title">chondo bag</p>
-                     <p class="card-text">kes 3000</p>
-                     <p class="button">
-                         <a href="details.php" class="btn btn-default">View Details</a>
-                         <a href="details.php" class="btn btn-primary">
-                             <i class="fa fa-shopping-cart">
-                                 Add to Cart
-                             </i>
-                         </a>
-                     </p>
-                 </div>
-             </div>
-         </div>
+         <?php
+         getPro();
+         ?>
      </div>
  </div>
-
 
 <?php
 require 'footer.php';
