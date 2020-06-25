@@ -1,5 +1,6 @@
 <?php
-require 'header.php';
+include_once 'header.php';
+include_once 'functions/functions.php';
 ?>
 
 <div id="content">
@@ -74,13 +75,13 @@ require 'header.php';
                                             
                                             <div class='text'>
                                                 <h6> <center>
-                                                <a href='details.php?pro_id'>$pro_title</a>                                         
+                                                <a href='details.php?pro_id=$pro_id'>$pro_title</a>                                         
                                                 </center></h6>
                                                 <p class='price'>
                                                     <center><strong><u>KES. $pro_price</u></strong></center>
                                                 </p>
                                                 <p class='button'>
-                                                    <a class='btn btn-success' href='details.php?pro_id'>
+                                                    <a class='btn btn-success' href='details.php?pro_id=$pro_id'>
                                                       View details
                                                     </a>   
                                                     <a class='btn btn-primary' href='details.php?pro_id'>

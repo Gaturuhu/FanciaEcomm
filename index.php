@@ -1,7 +1,6 @@
 <?php
-require 'db.php';
 require 'header.php';
-require 'functions/functions.php';
+
 ?>
 <!--    carousel start-->
     <div class="container">

@@ -1,6 +1,7 @@
 <?php
 require 'configurations.php';
 require 'header.php';
+include_once 'functions/functions.php';
 ?>
 <div class="container">
     <div class="col-md-12">
@@ -51,9 +52,28 @@ require 'header.php';
                            <i class="fa fa-fa-user-md"></i>Send Message
                            </button>
                        </div>
-
-
                    </form>
+                   <?php
+                   if(isset($_POST['submit'])){
+                       //Admin receives the message
+                       $sender_name = $_POST['name'];
+                       $sender_email = $_POST['email'];
+                       $sender_subject = $_POST['subject'];
+                       $sender_message = $_POST['message'];
+
+                       $receiver_email = "j.gaturuhumugure@gmail.com";
+                       mail($receiver_email,$sender_name,$sender_subject,$sender_message,$sender_email);
+                       //auto reply to the sender with this
+                       $email = $_POST['email'];
+                       $subject = "welcome to our website";
+                       $msg = "Thanks fo sending us the message, our team will get back to you ASAP";
+                       $from = "j.gaturuhumugure@gmail.com";
+                       mail($email,$subject,$msg,$from);
+                       echo "<h3 align='center'>Your message has been sent successfully</h3>";
+
+                   }
+
+                   ?>
                </div>
            </div>
        </div>

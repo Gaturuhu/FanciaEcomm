@@ -1,6 +1,8 @@
 <?php
 require 'header.php';
+include_once 'functions/functions.php';
 ?>
+
 <div class="container">
     <div class="col-md-12">
         <ul class="breadcrumb">
@@ -9,6 +11,12 @@ require 'header.php';
             </li>
             <li>
                 shop
+            </li>
+            <li>
+                <a href="shop.php?p_cat=<?php echo $p_cat_id; ?>"><?php echo $p_cat_title;?> </a>
+            </li>
+            <li>
+                <?php echo $pro_title;?>
             </li>
         </ul>
     </div>
@@ -28,19 +36,19 @@ require 'header.php';
                 </ol>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="images/bag.jpg" class="d-block w-100" alt="...">
+                        <img src="product_images/<?php echo $pro_img1; ?>" class="d-block w-100" alt="...">
                     </div>
                     <div class="carousel-item">
-                        <img src="images/bag.jpg" class="d-block w-100" alt="...">
+                        <img src="product_images/<?php echo $pro_img2; ?>" class="d-block w-100" alt="...">
                     </div>
                     <div class="carousel-item">
-                        <img src="images/bag.jpg" class="d-block w-100" alt="...">
+                        <img src="product_images/<?php echo $pro_img3; ?>" class="d-block w-100" alt="...">
                     </div>
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="sr-only">Previous</span>
-                </a>
+                < /a>
                 <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="sr-only">Next</span>
@@ -49,8 +57,11 @@ require 'header.php';
         </div>
         <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
             <div class="box">
-                <h1 class="text-center">GUCCI WEAR</h1>
-                <form action="details.php" class="form-horizontal" method="post"></form>
+                <h1 class="text-center"><?php echo $pro_title; ?></h1>
+
+                <?php add_cart(); ?>
+
+                <form action="details.php?add_cart=<?php echo $product_id;?>" class="form-horizontal" method="post">
                 <div class="form-group">
                     <label for="" class="col-md-5 control-label">Quantity</label>
                     <div  class="col-md-7">
@@ -65,18 +76,21 @@ require 'header.php';
 
                 </div>
                 <div class="form-group">
-                    <label for="" class="col-md-5 control-label">Size</label>
+                    <label class="col-md-5 control-label">Size</label>
                     <div class="col-md-7">
-                        <select name="product_size" class="form-control">
-                            <option>size</option>
+                        <select name="product_size" class="form-control" required oninput="setCustomValidity('')"
+                        oninvalid="setCustomValidity('Must pick 1 size for the product')">
+
+                            <option disabled selected>Size</option>
                             <option>small</option>
                             <option>medium</option>
                             <option>large</option>
                         </select>
                     </div>
                 </div>
-                <p class="price">KES 3000</p>
-                <p class="text-center buttons"><button class="btn btn-primary i fa fa-shopping-cart">Add to cart</button></p>
+                <center> <h2 class="price">Kes <?php echo $pro_price; ?> </h2></center>
+                <p class="text-center buttons"><button class="btn btn-primary i fa fa-shopping-cart" name="add_cart">Add to cart</button></p>
+                </form>
             </div>
         </div>
     </div>
@@ -88,7 +102,7 @@ require 'header.php';
             <div class="box" id="details">
                 <h4>Product Details</h4>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad adipisci aliquid amet blanditiis debitis, dolor eius esse est et harum illum maxime mollitia, provident quaerat suscipit tempora voluptates! Cupiditate, est!
+                  <?php $pro_desc;?>
                 </p>
                 <h4>Size</h4>
                 <ul>
@@ -104,49 +118,49 @@ require 'header.php';
 <div class="container" id="like">
     <div class="row">
         <div class="col sm-3 col-md-3 col-lg-3 col-xl-3"></div>
-        <div class="col sm-2.25 col-md-2.25 col-lg-2.25 col-xl-2.25">
+        <div class="col sm-3 col-md-3 col-lg-3 col-xl-3">
             <p style="font-size: 30px">
                 PRODUCTS YOU
-                <br>
+
                 MAY LIKE
             </p>
         </div>
-        <div class="col sm-2.25 col-md-2.25 col-lg-2.25 col-xl-2.25">
-            <a href="#">
-                <div class="card" style="width: 12rem;">
-                    <img src="images/nn.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <p class="card-title">chondo bag</p>
-                        <p class="card-text">kes 3000</p>
-                    </div>
+
+        <?php
+
+        $get_products = "select * from `products` order by rand() DESC LIMIT 0,3";
+        $run_products = mysqli_query($conn,$get_products);
+        while($row_products = mysqli_fetch_array($run_products)) {
+
+            $pro_id = $row_products['product_id'];
+            $pro_title = $row_products['product_title'];
+            $pro_img1 = $row_products['product_img1'];
+            $pro_price = $row_products['product_price'];
+
+            echo "
+
+            <div class='col-sm-2 col-md-2 col-lg-2 col-xl-2'>
+                             
+                <a href='details.php?pro_id=$pro_id'>
+                    <img src='product_images/$pro_img1' style='height: 200px'>             
+                </a>
+                
+                <div class ='text'>
+                <h6><a href='details.php?pro_id=$pro_id'>$pro_title</a></h6>
+                <p class ='price'> Kes $pro_price</p>
                 </div>
-            </a>
-        </div>
-        <div class="col sm-2.25 col-md-2.25 col-lg-2.25 col-xl-2.25">
-            <a href="#">
-                <div class="card" style="width: 12rem;">
-                    <img src="images/nn.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <p class="card-title">chondo bag</p>
-                        <p class="card-text">kes 3000</p>
-                    </div>
                 </div>
-            </a>
-        </div>
-        <div class="col sm-2.25 col-md-2.25 col-lg-2.25 col-xl-2.25">
-            <a href="#">
-                <div class="card" style="width: 12rem;">
-                    <img src="images/nn.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <p class="card-title">chondo bag</p>
-                        <p class="card-text">kes 3000</p>
-                    </div>
-                </div>
-            </a>
-        </div>
+              
+               
+            
+            ";
+        }
+
+        ?>
+
     </div>
 </div>
 
-<?
+<?php
 require 'footer.php';
 ?>
